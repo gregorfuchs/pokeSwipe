@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéSwipe - Trainer Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="screen">
+        <div class="auth-container">
+            <div class="logo">Poké<span>Swipe</span></div>
+            <p>Bist du bereit für dein Abenteuer?</p>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Trainer:in">
+            </div>
+            <button class="btn-main" onclick="login()">Abenteuer starten</button>
+        </div>
+    </div>
+
+    <div id="main-screen" class="screen hidden">
+        <nav>
+            <div class="nav-left">
+                <div class="trainer-badge">
+                    <span id="user-display"></span>
+                </div>
+                <button class="btn-text" onclick="logout()">Abmelden</button>
+            </div>
+            <div id="counter">0 / 0</div>
+            <div class="nav-right">
+                <button class="btn-reset" onclick="resetApp()">Reset</button>
+                <button class="btn-lib" onclick="showLibrary()">Bibliothek</button>
+            </div>
+        </nav>
+        
+        <div class="card-container" id="card-stack"></div>
+
+        <div class="controls">
+            <button class="btn-dislike" onclick="swipeLeft()" aria-label="Dislike">✖</button>
+            <button class="btn-undo" onclick="undoSwipe()" aria-label="Undo">↩</button>
+            <button class="btn-like" onclick="swipeRight()" aria-label="Like">♥</button>
+        </div>
+    </div>
+
+    <div id="library-screen" class="screen hidden">
+        <nav>
+            <button class="btn-back" onclick="showMain()">← Zurück</button>
+            <h1>Deine Sammlung</h1>
+            <button id="download-btn" class="btn-email hidden" onclick="downloadLibrary()">Liste laden</button>
+        </nav>
+        <div id="library-grid" class="grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
